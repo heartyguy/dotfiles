@@ -1,0 +1,12 @@
+ctrl_interface=/var/run/wpa_supplicant
+ctrl_interface_group=wheel
+ap_scan=1
+network={
+    ssid="eduroam"
+    proto=RSN
+    pairwise=CCMP
+    eap=PEAP
+    identity="userid@uwaterloo.ca"
+    password="password"
+    key_mgmt=WPA-EAP
+}
