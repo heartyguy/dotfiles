@@ -1,0 +1,14 @@
+Description='Eduroam connection for all over the world'
+Interface=wlp3s0
+Connection=wireless
+Security=wpa-configsection
+IP=dhcp
+WPAConfigSection=(
+	'ssid="eduroam"'
+	'proto=RSN WPA'
+	'key_mgmt=WPA-EAP'
+	'auth_alg=OPEN'
+	'eap=PEAP'
+	'identity="userid@uwaterloo.ca"'
+	'password="password"'
+)
