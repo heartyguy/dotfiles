@@ -1,0 +1,76 @@
+Config {
+
+    -- appearance
+      font                     = "xft:Bitstream Vera Sans Mono:pixelsize=11:bold:antialias=true"
+    , bgColor                  = "black"
+    , fgColor                  = "grey"
+    , position                 = Static { xpos=0, ypos=0, width=1920, height=15 }
+    , border                   = BottomB
+    , borderColor              = "grey"
+
+    -- layout
+    , sepChar                  = "%"
+    , alignSep                 = "}{"
+    , template                 = " %StdinReader% }{ %battery% | %multicpu% | %memory% | %dynnetwork% | %date% "
+
+    -- general behavior
+    , lowerOnStart             = True
+    , hideOnStart              = False
+    , allDesktops              = True
+    , overrideRedirect         = True
+    , pickBroadest             = False
+    , persistent               = True
+
+    -- plugins
+    , commands =
+
+        -- network activity monitor
+        [ Run DynNetwork     [ "--template" , "<dev>: <tx>kB|<rx>kB"
+                             , "--Low"      , "10000"
+                             , "--High"     , "500000"
+                             , "--low"      , "darkgreen"
+                             , "--normal"   , "darkorange"
+                             , "--high"     , "orange"
+                             ] 10
+
+        -- cpu activity monitor
+        , Run MultiCpu       [ "--template" , "Cpu: <autototal>%"
+                             , "--Low"      , "50"         -- units: %
+                             , "--High"     , "85"         -- units: %
+                             , "--low"      , "darkgreen"
+                             , "--normal"   , "darkorange"
+                             , "--high"     , "darkred"
+                             ] 10
+
+        -- memory usage monitor
+        , Run Memory         [ "--template" ,"Mem: <usedratio>%"
+                             , "--Low"      , "20"        -- units: %
+                             , "--High"     , "90"        -- units: %
+                             , "--low"      , "darkgreen"
+                             , "--normal"   , "darkorange"
+                             , "--high"     , "darkred"
+                             ] 10
+
+        -- battery monitor
+        , Run Battery        [ "--template" , "Batt: <acstatus>"
+                             , "--Low"      , "10"        -- units: %
+                             , "--High"     , "80"        -- units: %
+                             , "--low"      , "darkred"
+                             , "--normal"   , "darkorange"
+                             , "--high"     , "darkgreen"
+
+                             , "--" -- battery specific options
+                                       -- discharging status
+                                       , "-o"	, "<left>% (<timeleft>)"
+                                       -- AC "on" status
+                                       , "-O"	, "<fc=#dAA520>Charging</fc>"
+                                       -- charged status
+                                       , "-i"	, "<fc=#006000>Charged</fc>"
+                             ] 50
+
+        -- time and date indicator 
+        --   (%F = y-m-d date, %a = day of week, %T = h:m:s time)
+        , Run Date           "%F (%a) %T" "date" 10
+
+        ]
+}

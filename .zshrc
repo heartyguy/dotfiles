@@ -31,7 +31,7 @@ COMPLETION_WAITING_DOTS="true"
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
 # much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
+DISABLE_UNTRACKED_FILES_DIRTY="true"
 
 # Uncomment the following line if you want to change the command execution time
 # stamp shown in the history command output.
@@ -45,7 +45,7 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(colored-man encode64 git gitfast sudo)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -65,7 +65,7 @@ export PATH="/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/site_perl:/usr/bin
 # fi
 
 # Compilation flags
-# export ARCHFLAGS="-arch x86_64"
+export ARCHFLAGS="-arch x86_64"
 
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
@@ -79,23 +79,23 @@ export PATH="/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/site_perl:/usr/bin
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+# Shell Command Highlighting
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-# export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-
 # postgres
-LD_LIBRARY_PATH=/usr/local/pgsql/lib
-export LD_LIBRARY_PATH
-PATH=/usr/local/pgsql/bin:$PATH
-export PATH
-MANPATH=/usr/local/pgsql/man:$MANPATH
-export MANPATH
+export LD_LIBRARY_PATH=/usr/local/pgsql/lib
+export PATH=/usr/local/pgsql/bin:$PATH
+export MANPATH=/usr/local/pgsql/man:$MANPATH
 
-# export PATH="$PATH:$HOME/.rvm/bin:/home/stratos/.rvm/gems/ruby-2.1.5/bin" # Add RVM to PATH for scripting
 source $HOME/.zlogin
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
-
 # Editor
-EDITOR=vi
-export EDITOR
+export EDITOR=vi
+
+# Node (n)
+export N_PREFIX="$HOME/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"  # Added by n-install (see http://git.io/n-install-repo).
+
+
+# Welcome Message
+fortune -a | cowsay | lolcat
