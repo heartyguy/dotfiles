@@ -4,6 +4,7 @@ Config {
       font                     = "xft:Bitstream Vera Sans Mono:pixelsize=11:bold:antialias=true"
     , bgColor                  = "black"
     , fgColor                  = "grey"
+    -- , position                 = Top
     , position                 = Static { xpos=0, ypos=0, width=1920, height=15 }
     , border                   = BottomB
     , borderColor              = "grey"
@@ -72,5 +73,7 @@ Config {
         --   (%F = y-m-d date, %a = day of week, %T = h:m:s time)
         , Run Date           "%F (%a) %T" "date" 10
 
+        -- standard input
+        , Run StdinReader
         ]
 }
