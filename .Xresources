@@ -1,3 +1,7 @@
+Xcursor.theme: Simple-and-Soft
+Xcursor.size: 32
+
+
 URxvt.perl-ext-common: default, clipboard
 URxvt.iso14755: False
 

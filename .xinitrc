@@ -27,24 +27,15 @@ if [ -f "$usermodmap" ]; then
     xmodmap "$usermodmap"
 fi
 
-# start some nice programs
-
-if [ -d /etc/X11/xinit/xinitrc.d ] ; then
- for f in /etc/X11/xinit/xinitrc.d/?* ; do
-  [ -x "$f" ] && . "$f"
- done
- unset f
-fi
-
-xset r rate 250 30
-xsetroot -cursor_name left_ptr
-feh --bg-fill -z ~/pictures/wallpapers
-# trayer --edge top --align right --SetDockType true --SetPartialStrut true --expand true --width 3 --transparent true --alpha 0 --tint 0x000000 --height 18 &
 
 # variables
 
-export JAVA_HOME=/usr/lib/jvm/java-7-openjdk
+export JAVA_HOME=/usr/lib/jvm/java-8-openjdk
 
+
+feh --bg-fill -z ~/pictures/wallpapers &
+xset r rate 250 30
+xsetroot -cursor_name left_ptr
 
 
 exec xmonad
