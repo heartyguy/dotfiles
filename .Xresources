@@ -34,8 +34,8 @@ URxvt.font:                           xft:DejaVu Sans Mono:pixelsize=14
 URxvt.boldFont:                       xft:DejaVu Sans Mono:bold:pixelsize=14
 
 ! --- urxvt.spacing ---
-URxvt.letterSpace:                    -2
-URxvt.lineSpace:                      1
+URxvt.letterSpace:                    -1
+URxvt.lineSpace:                      0
 
 ! --- urxvt.foreground ---
 URxvt.foreground:                     #DDDDDD
