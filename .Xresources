@@ -1,48 +1,66 @@
-Xcursor.theme: Simple-and-Soft
-Xcursor.size: 32
+! .Xresources
 
-URxvt.perl-ext-common: default, clipboard
-URxvt.iso14755: False
 
-URxvt.transparent:                    true
-URxvt.shading:                        30
+! --- cursor ---
+Xcursor.theme:                        Simple-and-Soft
+Xcursor.size:                         32
 
+! --- urxvt.background ---
+URxvt.depth:                          32
+URxvt.background:                     [75]#000000
+URxvt.transparent:                    false
+
+! --- urxvt.scroll ---
 URxvt.scrollBar:                      false
-
 URxvt.scrollTtyOutput:                false
 URxvt.scrollWithBuffer:               true
 URxvt.scrollTtyKeypress:              true
-
-URxvt.cursorUnderline:                true
-URxvt.cursorBlink:                    true
-
 URxvt.secondaryScreen:                1
 URxvt.secondaryScroll:                0
 
+! --- urxvt.cursor ---
+URxvt.cursorUnderline:                true
+URxvt.cursorBlink:                    true
+
+! --- xft ---
 Xft.dpi:                              96
 Xft.antialias:                        true
 Xft.hinting:                          true
 Xft.hintstyle:                        hintfull
 Xft.rgba:                             rgb
 
-URxvt.font:                           xft:DejaVu Sans Mono:pixelsize=12
-URxvt.boldFont:                       xft:DejaVu Sans Mono:bold:pixelsize=12
+! --- urxvt.font ---
+URxvt.font:                           xft:DejaVu Sans Mono:pixelsize=14
+URxvt.boldFont:                       xft:DejaVu Sans Mono:bold:pixelsize=14
 
-URxvt.background:                     black
-URxvt.foreground:                     white
+! --- urxvt.spacing ---
+URxvt.letterSpace:                    -2
+URxvt.lineSpace:                      1
 
-URxvt.letterSpace:                    0
+! --- urxvt.foreground ---
+URxvt.foreground:                     #DDDDDD
 
+! --- urxvt.miscellaneous ---
 URxvt.loginShell:                     false
 URxvt.saveLines:                      2000
+URxvt.iso14755:                       False
 
+! --- urxvt.extensions ---
+URxvt.perl-lib:                       /usr/lib/urxvt-perls/
+
+URxvt.perl-ext-common:                clipboard
+
+! --- urxvt.keybindings ---
 URxvt.keysym.Control-Up:              \033[1;5A
 URxvt.keysym.Control-Down:            \033[1;5B
 URxvt.keysym.Control-Left:            \033[1;5D
 URxvt.keysym.Control-Right:           \033[1;5C
 
-URxvt.keysym.Control-Insert:          perl:clipboard:copy
-URxvt.keysym.Shift-Control-Insert:    perl:clipboard:paste
+!URxvt.keysym.Control-Insert:          perl:clipboard:copy
+!URxvt.keysym.Shift-Control-Insert:    perl:clipboard:paste
 
+!URxvt.keysym.M-c:                     perl:clipboard:copy
+!URxvt.keysym.M-v:                     perl:clipboard:paste
+!URxvt.keysym.M-C-v:                   perl:clipboard:paste_escaped
 
 

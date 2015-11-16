@@ -6,23 +6,26 @@ import XMonad.Hooks.SetWMName
 import XMonad.Layout.Spacing
 import XMonad.Layout.NoBorders
 import XMonad.Layout.Fullscreen
+import XMonad.Layout.PerWorkspace
 import XMonad.Util.EZConfig
 import XMonad.Util.Run
 import Graphics.X11.ExtraTypes.XF86
 import System.IO
 
-myWorkspaces = ["1", "2:Web", "3:Code", "4", "5", "6", "7:Chat", "8", "9"]
+myWorkspaces = ["1:Main", "2:Web", "3:Code", "4", "5", "6", "7", "8", "9:Misc"]
 
 myManageHook = composeAll
-    [ className =? "Firefox" --> doShift "2:Web"
-    , isFullscreen           --> doFullFloat ]
+    [ className =? "Firefox"         --> doShift "2:Web"
+    , className =? "sublime_text"    --> doShift "3:Code"
+    , className =? "jetbrains-idea"  --> doShift "3:Code"
+    , isFullscreen                   --> doFullFloat ]
 
 -- layout
 defaultLayout = tiled ||| Full
   where
     tiled = spacing 2 $ Tall nmaster delta ratio
     nmaster = 1
-    ratio = 2/3
+    ratio = 3/5
     delta = 3/100
 
 -- loghook
@@ -50,7 +53,7 @@ main = do
     `additionalKeys`
 
     [ ((0, xK_Print),                     -- print screen
-       spawn "scrot")
+       spawn "scrot ~/pictures/screenshots/scrot-%Y-%m-%d-%T.png")
 
     , ((0, xK_Mode_switch),               -- launch
        spawn "dmenu_run")

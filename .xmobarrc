@@ -4,15 +4,16 @@ Config {
       font                     = "xft:Bitstream Vera Sans Mono:pixelsize=11:bold:antialias=true"
     , bgColor                  = "black"
     , fgColor                  = "grey"
-    -- , position                 = Top
-    , position                 = Static { xpos=0, ypos=0, width=1920, height=15 }
+    , position                 = Top
+--    , position                 = Bottom
+--    , position                 = Static { xpos=0, ypos=0, width=1920, height=15 }
     , border                   = BottomB
     , borderColor              = "grey"
 
     -- layout
     , sepChar                  = "%"
     , alignSep                 = "}{"
-    , template                 = " %StdinReader% }{ %battery% | %multicpu% | %memory% | %dynnetwork% | %date% "
+    , template                 = " %StdinReader% }{ Batt %battery% | Cpu %multicpu% | Mem %memory% | Net %dynnetwork% | %date% "
 
     -- general behavior
     , lowerOnStart             = True
@@ -26,37 +27,37 @@ Config {
     , commands =
 
         -- network activity monitor
-        [ Run DynNetwork     [ "--template" , "<dev>: <tx>kB|<rx>kB"
-                             , "--Low"      , "10000"
+        [ Run DynNetwork     [ "--template" , "(<dev>) <tx>|<rx> kB/s"
+                             , "--Low"      , "100000"
                              , "--High"     , "500000"
                              , "--low"      , "darkgreen"
-                             , "--normal"   , "darkorange"
-                             , "--high"     , "orange"
+                             , "--normal"   , "blue"
+                             , "--high"     , "lightblue"
                              ] 10
 
         -- cpu activity monitor
-        , Run MultiCpu       [ "--template" , "Cpu: <autototal>%"
-                             , "--Low"      , "50"         -- units: %
+        , Run MultiCpu       [ "--template" , "<autototal>%"
+                             , "--Low"      , "30"         -- units: %
                              , "--High"     , "85"         -- units: %
                              , "--low"      , "darkgreen"
-                             , "--normal"   , "darkorange"
-                             , "--high"     , "darkred"
+                             , "--normal"   , "orange"
+                             , "--high"     , "red"
                              ] 10
 
         -- memory usage monitor
-        , Run Memory         [ "--template" ,"Mem: <usedratio>%"
+        , Run Memory         [ "--template" ,"<usedratio>%"
                              , "--Low"      , "20"        -- units: %
                              , "--High"     , "90"        -- units: %
                              , "--low"      , "darkgreen"
-                             , "--normal"   , "darkorange"
-                             , "--high"     , "darkred"
+                             , "--normal"   , "orange"
+                             , "--high"     , "red"
                              ] 10
 
         -- battery monitor
-        , Run Battery        [ "--template" , "Batt: <acstatus>"
+        , Run Battery        [ "--template" , "<acstatus>"
                              , "--Low"      , "10"        -- units: %
                              , "--High"     , "80"        -- units: %
-                             , "--low"      , "darkred"
+                             , "--low"      , "red"
                              , "--normal"   , "darkorange"
                              , "--high"     , "darkgreen"
 
@@ -64,7 +65,7 @@ Config {
                                        -- discharging status
                                        , "-o"	, "<left>% (<timeleft>)"
                                        -- AC "on" status
-                                       , "-O"	, "<fc=#dAA520>Charging</fc>"
+                                       , "-O"	, "<fc=#dAA520>Charging (<left>%)</fc>"
                                        -- charged status
                                        , "-i"	, "<fc=#006000>Charged</fc>"
                              ] 50

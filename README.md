@@ -15,3 +15,5 @@ I run a Lenovo Thinkpad T430s laptop for development, running Arch Linux. Alongs
 - Xorg
 - Xsetroot
 - Xmonad
+- compton
+
