@@ -45,7 +45,7 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(colored-man encode64 git gitfast sudo)
+plugins=(git gitfast)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -79,23 +79,29 @@ export ARCHFLAGS="-arch x86_64"
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+alias open="xdg-open"
+
 # Shell Command Highlighting
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-# postgres
+# PostgreSQL
 export LD_LIBRARY_PATH=/usr/local/pgsql/lib
 export PATH=/usr/local/pgsql/bin:$PATH
 export MANPATH=/usr/local/pgsql/man:$MANPATH
 
+# RVM
 source $HOME/.zlogin
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
 # Editor
 export EDITOR=vi
 
-# Node (n)
-export N_PREFIX="$HOME/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"  # Added by n-install (see http://git.io/n-install-repo).
+# SDKs
+export PATH=$HOME/dev/SDKs/android-sdk-linux/tools:$PATH   # Android
+export PATH=$HOME/dev/SDKs/activator-dist-1.3.6:$PATH      # Typesafe Activator
 
+
+# Aliases
 
 # Welcome Message
-fortune -a | cowsay | lolcat
+fortune -a  | lolcat

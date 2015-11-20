@@ -35,7 +35,7 @@ URxvt.boldFont:                       xft:DejaVu Sans Mono:bold:pixelsize=14
 
 ! --- urxvt.spacing ---
 URxvt.letterSpace:                    -2
-URxvt.lineSpace:                      0
+URxvt.lineSpace:                      1
 
 ! --- urxvt.foreground ---
 URxvt.foreground:                     #DDDDDD
@@ -56,8 +56,12 @@ URxvt.keysym.Control-Down:            \033[1;5B
 URxvt.keysym.Control-Left:            \033[1;5D
 URxvt.keysym.Control-Right:           \033[1;5C
 
-!URxvt.keysym.Control-Insert:          perl:clipboard:copy
-!URxvt.keysym.Shift-Control-Insert:    perl:clipboard:paste
+! --- urxvt.clipboard ---
+URxvt.clipboard.copycmd:  xclip -i -selection clipboard
+URxvt.clipboard.pastecmd: xclip -o -selection clipboard
+
+URxvt.keysym.Control-Insert:          perl:clipboard:copy
+URxvt.keysym.Shift-Insert:            perl:clipboard:paste
 
 !URxvt.keysym.M-c:                     perl:clipboard:copy
 !URxvt.keysym.M-v:                     perl:clipboard:paste
