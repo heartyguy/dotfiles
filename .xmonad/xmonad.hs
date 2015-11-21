@@ -12,8 +12,13 @@ import XMonad.Util.Run
 import Graphics.X11.ExtraTypes.XF86
 import System.IO
 
-myWorkspaces = ["1:Main", "2:Web", "3:Code", "4", "5", "6", "7", "8", "9:Misc"]
+import qualified XMonad.StackSet as W
+import qualified Data.Map        as M
 
+-- workspace
+myWorkspaces = ["1:Main", "2:Web", "3:Code", "4:Aux", "5", "6", "7", "8", "9:Misc"]
+
+-- management
 myManageHook = composeAll
     [ className =? "Firefox"         --> doShift "2:Web"
     , className =? "sublime_text"    --> doShift "3:Code"
@@ -34,8 +39,9 @@ myLogHook dest = dynamicLogWithPP $ xmobarPP
     , ppTitle = xmobarColor "green" "" . shorten 50
     }
 
+-- main
 main = do
-  xmproc <- spawnPipe "/usr/bin/xmobar"
+  xmproc <- spawnPipe "xmobar"
   xmonad $ defaultConfig
     { borderWidth          = 1
     , normalBorderColor    = "#343838"
@@ -46,7 +52,7 @@ main = do
 
     -- hooks
     , manageHook           = manageDocks <+> myManageHook
-    , layoutHook           = avoidStruts $ smartBorders defaultLayout
+    , layoutHook           = smartBorders $ avoidStruts defaultLayout
     , startupHook          = setWMName "LG3D"
     , logHook              = myLogHook xmproc
     }
@@ -71,10 +77,10 @@ main = do
        spawn "light -U 5")
 
     , ((0, xF86XK_AudioRaiseVolume),      -- volume up
-       spawn "amixer -D pulse set Master 5%+")
+       spawn "amixer -D pulse set Master on  && amixer -D pulse set Master 5%+")
 
     , ((0, xF86XK_AudioLowerVolume),      -- volume down
-       spawn "amixer -D pulse set Master 5%-")
+       spawn "amixer -D pulse set Master on && amixer -D pulse set Master 5%-")
 
     , ((0, xF86XK_AudioMute),             -- volume mute
        spawn "amixer -D pulse set Master toggle")
