@@ -1,19 +1,21 @@
 import XMonad
+import XMonad.Config.Desktop
 import XMonad.Hooks.DynamicLog
+import XMonad.Hooks.EwmhDesktops
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.ManageHelpers
 import XMonad.Hooks.SetWMName
-import XMonad.Layout.Spacing
+import XMonad.Layout.Fullscreen hiding (fullscreenEventHook)
 import XMonad.Layout.NoBorders
-import XMonad.Layout.Fullscreen
 import XMonad.Layout.PerWorkspace
+import XMonad.Layout.Spacing
 import XMonad.Util.EZConfig
 import XMonad.Util.Run
 import Graphics.X11.ExtraTypes.XF86
 import System.IO
 
-import qualified XMonad.StackSet as W
 import qualified Data.Map        as M
+import qualified XMonad.StackSet as W
 
 -- workspace
 myWorkspaces = ["1:Main", "2:Web", "3:Code", "4:Aux", "5", "6", "7", "8", "9:Misc"]
@@ -42,7 +44,7 @@ myLogHook dest = dynamicLogWithPP $ xmobarPP
 -- main
 main = do
   xmproc <- spawnPipe "xmobar"
-  xmonad $ defaultConfig
+  xmonad $ desktopConfig
     { borderWidth          = 1
     , normalBorderColor    = "#343838"
     , focusedBorderColor   = "#008C9E"
@@ -55,6 +57,7 @@ main = do
     , layoutHook           = smartBorders $ avoidStruts defaultLayout
     , startupHook          = setWMName "LG3D"
     , logHook              = myLogHook xmproc
+    , handleEventHook      = fullscreenEventHook
     }
     `additionalKeys`
 
