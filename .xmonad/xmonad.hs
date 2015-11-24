@@ -25,6 +25,8 @@ myManageHook = composeAll
     [ className =? "Firefox"         --> doShift "2:Web"
     , className =? "sublime_text"    --> doShift "3:Code"
     , className =? "jetbrains-idea"  --> doShift "3:Code"
+    , className =? "lighttable"      --> doShift "3:Code"
+    , className =? "LightTable"      --> doShift "3:Code"
     , isFullscreen                   --> doFullFloat ]
 
 -- layout
