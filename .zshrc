@@ -67,19 +67,9 @@ export PATH="/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/site_perl:/usr/bin
 # Compilation flags
 export ARCHFLAGS="-arch x86_64"
 
-# ssh
+# SSH
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
 
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-
-alias open="xdg-open"
 
 # Shell Command Highlighting
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
@@ -100,8 +90,15 @@ export EDITOR=vi
 export PATH=$HOME/dev/SDKs/android-sdk-linux/tools:$PATH   # Android
 export PATH=$HOME/dev/SDKs/activator-dist-1.3.6:$PATH      # Typesafe Activator
 
+# Key Bindings
+bindkey -M emacs 'C;BS~' backward-kill-word 
+bindkey -M emacs 'C;DEL~' kill-word
 
 # Aliases
+alias ll="ls -laG"
+# alias open="xdg-open &"
+open() { xdg-open "$@" & }
+
 
 # Welcome Message
 fortune -a  | lolcat
