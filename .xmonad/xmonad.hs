@@ -50,7 +50,7 @@ main = do
     { borderWidth          = 1
     , normalBorderColor    = "#343838"
     , focusedBorderColor   = "#008C9E"
-    , terminal             = "urxvt"
+    , terminal             = "urxvtc"
     , modMask              = mod4Mask
     , workspaces           = myWorkspaces
 

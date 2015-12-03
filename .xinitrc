@@ -1,10 +1,6 @@
 #!/bin/sh
 # .xinitrc
 
-# --- xrandr ---
-xrandr --setprovideroutputsource modesetting NVIDIA-0
-xrandr --auto
-
 # --- resources ---
 userresources=$HOME/.Xresources
 usermodmap=$HOME/.Xmodmap
@@ -30,10 +26,12 @@ export JAVA_HOME=/usr/lib/jvm/java-8-openjdk
 # --- configurations ---
 xset r rate 250 30
 xsetroot -cursor_name left_ptr
+urxvtd -q -o -f
 
 # --- processes ---
 compton &
 feh --randomize --bg-fill -z ~/pictures/wallpapers/* &
+dropboxd
 
 # --- window manager ---
 exec xmonad

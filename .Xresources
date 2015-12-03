@@ -15,19 +15,12 @@ URxvt.scrollBar:                      false
 URxvt.scrollTtyOutput:                false
 URxvt.scrollWithBuffer:               true
 URxvt.scrollTtyKeypress:              true
-URxvt.secondaryScreen:                1
+URxvt.secondaryScreen:                0
 URxvt.secondaryScroll:                0
 
 ! --- urxvt.cursor ---
 URxvt.cursorUnderline:                true
 URxvt.cursorBlink:                    true
-
-! --- xft ---
-Xft.dpi:                              96
-Xft.antialias:                        true
-Xft.hinting:                          true
-Xft.hintstyle:                        hintfull
-Xft.rgba:                             rgb
 
 ! --- urxvt.font ---
 URxvt.font:                           xft:DejaVu Sans Mono:pixelsize=14
