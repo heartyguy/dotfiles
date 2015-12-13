@@ -13,7 +13,7 @@ Config {
     -- layout
     , sepChar                  = "%"
     , alignSep                 = "}{"
-    , template                 = " %StdinReader% }{ Batt %battery% | Cpu %multicpu% | Mem %memory% | Net %dynnetwork% | %date% "
+    , template                 = " %StdinReader% }{ Batt %battery% | Vol %volume% | Cpu %multicpu% | Mem %memory% | Net %wifisignal% %dynnetwork% | %date% "
 
     -- general behavior
     , lowerOnStart             = True
@@ -76,5 +76,11 @@ Config {
 
         -- standard input
         , Run StdinReader
+
+        -- wifi signal
+        , Run Com "/home/glados/.bin/wireless.sh" [] "wifisignal" 10
+
+        -- volume
+        , Run Com "/home/glados/.bin/volume.sh" [] "volume" 10
         ]
 }

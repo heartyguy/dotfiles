@@ -47,7 +47,7 @@ myLogHook dest = dynamicLogWithPP $ xmobarPP
 main = do
   xmproc <- spawnPipe "xmobar"
   xmonad $ desktopConfig
-    { borderWidth          = 1
+    { borderWidth          = 0
     , normalBorderColor    = "#343838"
     , focusedBorderColor   = "#008C9E"
     , terminal             = "urxvtc"
