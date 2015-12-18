@@ -2,6 +2,7 @@ import XMonad
 import XMonad.Config.Desktop
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.EwmhDesktops
+import XMonad.Hooks.FadeInactive
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.ManageHelpers
 import XMonad.Hooks.SetWMName
@@ -42,6 +43,8 @@ myLogHook dest = dynamicLogWithPP $ xmobarPP
     { ppOutput = hPutStrLn dest
     , ppTitle = xmobarColor "green" "" . shorten 50
     }
+dimLogHook = fadeInactiveLogHook fadeAmount
+    where fadeAmount = 0.9
 
 -- main
 main = do
@@ -58,7 +61,7 @@ main = do
     , manageHook           = manageDocks <+> myManageHook
     , layoutHook           = smartBorders $ avoidStruts defaultLayout
     , startupHook          = setWMName "LG3D"
-    , logHook              = myLogHook xmproc
+    , logHook              = dimLogHook >> (myLogHook xmproc)
     , handleEventHook      = fullscreenEventHook
     }
     `additionalKeys`

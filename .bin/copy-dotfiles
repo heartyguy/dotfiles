@@ -1,0 +1,28 @@
+#!/bin/bash
+
+REPO=~/dev/dotfiles
+
+cd ~
+
+# Bash
+cp -v .bash_profile .bashrc .profile $REPO/
+
+# Zsh
+cp -v .zlogin .zshrc $REPO/
+
+# Local scripts
+cp -v -r .bin $REPO/
+
+# Xorg and misc
+cp -v .xinitrc .xmobarrc .Xmodmap .Xresources .compton.conf $REPO/
+
+# Xorg (global)
+cp -v /etc/X11/xorg.conf $REPO/etc/X11/
+
+# Xmonad
+cp -v .xmonad/xmonad.hs $REPO/.xmonad/
+
+# Pacman
+cp -v /etc/pacman.conf $REPO/etc/
+
+

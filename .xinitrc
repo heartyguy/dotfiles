@@ -29,7 +29,7 @@ xsetroot -cursor_name left_ptr
 urxvtd -q -o -f
 
 # --- processes ---
-compton &
+compton --config ~/.compton.conf -b
 feh --randomize --bg-fill -z ~/pictures/wallpapers/* &
 dropboxd
 
