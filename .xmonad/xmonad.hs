@@ -19,7 +19,7 @@ import qualified Data.Map        as M
 import qualified XMonad.StackSet as W
 
 -- workspace
-myWorkspaces = ["1:Main", "2:Web", "3:Code", "4:Aux", "5", "6", "7", "8", "9:Misc"]
+myWorkspaces = ["1:Main", "2:Web", "3:Code", "4:Aux", "5", "6", "7", "8:Music", "9:Misc"]
 
 -- management
 myManageHook = composeAll
@@ -44,7 +44,7 @@ myLogHook dest = dynamicLogWithPP $ xmobarPP
     , ppTitle = xmobarColor "green" "" . shorten 50
     }
 dimLogHook = fadeInactiveLogHook fadeAmount
-    where fadeAmount = 0.9
+    where fadeAmount = 1
 
 -- main
 main = do
@@ -59,10 +59,13 @@ main = do
 
     -- hooks
     , manageHook           = manageDocks <+> myManageHook
-    , layoutHook           = smartBorders $ avoidStruts defaultLayout
+    , layoutHook           = avoidStruts $ smartBorders defaultLayout
     , startupHook          = setWMName "LG3D"
     , logHook              = dimLogHook >> (myLogHook xmproc)
-    , handleEventHook      = fullscreenEventHook
+    -- , handleEventHook      = fullscreenEventHook
+    , handleEventHook      = mconcat
+                           [ docksEventHook
+                           , fullscreenEventHook ]
     }
     `additionalKeys`
 
@@ -96,4 +99,6 @@ main = do
     , ((0, 0x1008FFB2),                   -- mic mute
        spawn "amixer -D pulse set Capture toggle")
 
+    , ((0, xF86XK_ScreenSaver),           -- lock screen
+       spawn "xscreensaver-command --lock")
     ]
