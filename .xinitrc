@@ -32,7 +32,7 @@ urxvtd -q -o -f
 compton --config ~/.compton.conf -b
 feh --randomize --bg-fill -z ~/pictures/wallpapers/* &
 dropboxd &
-xscreensaver &
+xscreensaver -no-splash &
 
 # --- window manager ---
 exec xmonad
