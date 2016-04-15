@@ -25,4 +25,5 @@ cp -v .xmonad/xmonad.hs $REPO/.xmonad/
 # Pacman
 cp -v /etc/pacman.conf $REPO/etc/
 
-
+# Screensaver
+cp -v .xscreensaver $REPO/
