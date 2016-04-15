@@ -1,19 +1,18 @@
 Config {
 
     -- appearance
-      font                     = "xft:Bitstream Vera Sans Mono:pixelsize=11:bold:antialias=true"
+      font                     = "xft:Bitstream Vera Sans Mono:pixelsize=11:antialias=true"
     , bgColor                  = "black"
-    , fgColor                  = "grey"
+    , fgColor                  = "#72FFD1"
+    , alpha                    = 199
     , position                 = Top
---    , position                 = Bottom
---    , position                 = Static { xpos=0, ypos=0, width=1920, height=15 }
-    , border                   = BottomB
-    , borderColor              = "grey"
+    -- , border                   = BottomB
+    -- , borderColor              = "grey"
 
     -- layout
     , sepChar                  = "%"
     , alignSep                 = "}{"
-    , template                 = " %StdinReader% }{ <fc=#ffffff>Cpu</fc> %multicpu% <fc=#ffffff>| Mem</fc> %memory% <fc=#ffffff>| Net</fc> %dynnetwork% %wifisignal% <fc=#ffffff>| Vol</fc> %volume% <fc=#ffffff>| Pow</fc> %battery% <fc=#ffffff>|</fc> %date% "
+    , template                 = " %StdinReader% }{ <fc=#72FFD1>Cpu</fc> %multicpu% <fc=#72FFD1>| Mem</fc> %memory% <fc=#72FFD1>| Net</fc> %dynnetwork% %wifisignal% <fc=#72FFD1>| Vol</fc> %volume% <fc=#72FFD1>| Pow</fc> %battery% <fc=#72FFD1>|</fc> %date% "
 
     -- general behavior
     , lowerOnStart             = True
@@ -27,7 +26,7 @@ Config {
     , commands =
 
         -- network activity monitor
-        [ Run DynNetwork     [ "--template" , "<tx>,<rx>kB/s"
+        [ Run DynNetwork     [ "--template" , "<tx> <rx>kB/s"
                              , "--Low"      , "100000"
                              , "--High"     , "500000"
                              , "--low"      , "darkgreen"
