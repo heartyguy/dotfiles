@@ -100,5 +100,5 @@ export PATH
 export MANPATH
 
 # Welcome Message
-fortune -a  | lolcat
+# fortune -a  | lolcat
 
