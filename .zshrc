@@ -52,7 +52,7 @@ source $ZSH/oh-my-zsh.sh
 # User configuration
 
 # Base path
-PATH="/usr/local/sbin:/usr/local/bin:/usr/bin"
+PATH="/usr/local/sbin:/usr/local/bin:/usr/bin:$HOME/.bin"
 MANPATH="/usr/local/man"
 
 # Perl path

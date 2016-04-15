@@ -2,8 +2,8 @@
 
 
 ! --- cursor ---
-Xcursor.theme:                        Simple-and-Soft
-Xcursor.size:                         32
+! Xcursor.theme:                        Simple-and-Soft
+Xcursor.size:                         16
 
 ! --- urxvt.background ---
 URxvt.depth:                          32
