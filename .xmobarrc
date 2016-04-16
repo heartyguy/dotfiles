@@ -3,7 +3,8 @@ Config {
     -- appearance
       font                     = "xft:Bitstream Vera Sans Mono:pixelsize=11:antialias=true"
     , bgColor                  = "black"
-    , fgColor                  = "#72FFD1"
+    , fgColor                  = "#70FFFE"
+    --, fgColor                  = "#CCFF7D"
     , alpha                    = 199
     , position                 = Top
     -- , border                   = BottomB
@@ -12,7 +13,7 @@ Config {
     -- layout
     , sepChar                  = "%"
     , alignSep                 = "}{"
-    , template                 = " %StdinReader% }{ <fc=#72FFD1>Cpu</fc> %multicpu% <fc=#72FFD1>| Mem</fc> %memory% <fc=#72FFD1>| Net</fc> %dynnetwork% %wifisignal% <fc=#72FFD1>| Vol</fc> %volume% <fc=#72FFD1>| Pow</fc> %battery% <fc=#72FFD1>|</fc> %date% "
+    , template                 = " %StdinReader% }{ cpu %multicpu% | mem %memory% | net %dynnetwork% %wifisignal% | vol %volume% | pow %battery% | %date% "
 
     -- general behavior
     , lowerOnStart             = True
@@ -29,49 +30,49 @@ Config {
         [ Run DynNetwork     [ "--template" , "<tx> <rx>kB/s"
                              , "--Low"      , "100000"
                              , "--High"     , "500000"
-                             , "--low"      , "darkgreen"
-                             , "--normal"   , "blue"
-                             , "--high"     , "lightblue"
+                             , "--low"      , "#CCFF7D"
+                             , "--normal"   , "#90E897"
+                             , "--high"     , "#B3FFE5"
                              ] 10
 
         -- cpu activity monitor
         , Run MultiCpu       [ "--template" , "<autototal>%"
                              , "--Low"      , "30"         -- units: %
                              , "--High"     , "85"         -- units: %
-                             , "--low"      , "darkgreen"
-                             , "--normal"   , "orange"
-                             , "--high"     , "red"
+                             , "--low"      , "#CCFF7D"
+                             , "--normal"   , "#E8DA4D"
+                             , "--high"     , "#FFBC1E"
                              ] 10
 
         -- memory usage monitor
         , Run Memory         [ "--template" ,"<usedratio>%"
                              , "--Low"      , "20"        -- units: %
                              , "--High"     , "90"        -- units: %
-                             , "--low"      , "darkgreen"
-                             , "--normal"   , "orange"
-                             , "--high"     , "red"
+                             , "--low"      , "#CCFF7D"
+                             , "--normal"   , "#E8DA4D"
+                             , "--high"     , "#FFBC1E"
                              ] 10
 
         -- battery monitor
         , Run Battery        [ "--template" , "<acstatus>"
                              , "--Low"      , "10"        -- units: %
                              , "--High"     , "80"        -- units: %
-                             , "--low"      , "red"
-                             , "--normal"   , "darkorange"
-                             , "--high"     , "darkgreen"
+                             , "--low"      , "#FFBC1E"
+                             , "--normal"   , "#E8DA4D"
+                             , "--high"     , "#CCFF7D"
 
                              , "--" -- battery specific options
                                        -- discharging status
                                        , "-o"	, "<left>%"
                                        -- AC "on" status
-                                       , "-O"	, "<fc=#dAA520><left>% charging</fc>"
+                                       , "-O"	, "<fc=#E8D466><left>% charging</fc>"
                                        -- charged status
-                                       , "-i"	, "<fc=#006000>full</fc>"
+                                       , "-i"	, "<fc=#CCFF7D>full</fc>"
                              ] 50
 
         -- time and date indicator 
         --   (%F = y-m-d date, %a = day of week, %T = h:m:s time)
-        , Run Date           "%F (%a) %T" "date" 10
+        , Run Date           "%A, %B %e, %Y %r %Z" "date" 10
 
         -- standard input
         , Run StdinReader
