@@ -10,6 +10,7 @@ import XMonad.Layout.Fullscreen hiding (fullscreenEventHook)
 import XMonad.Layout.NoBorders
 import XMonad.Layout.PerWorkspace
 import XMonad.Layout.Spacing
+import XMonad.Layout.Renamed
 import XMonad.Util.EZConfig
 import XMonad.Util.Run
 import Graphics.X11.ExtraTypes.XF86
@@ -19,19 +20,22 @@ import qualified Data.Map        as M
 import qualified XMonad.StackSet as W
 
 -- workspace
-myWorkspaces = ["1:Main", "2:Web", "3:Code", "4:Aux", "5", "6", "7", "8:Music", "9:Misc"]
+myWorkspaces = ["main", "web", "code", "aux", "v", "vi", "vii", "music", "misc"]
 
 -- management
 myManageHook = composeAll
-    [ className =? "Firefox"         --> doShift "2:Web"
-    , className =? "sublime_text"    --> doShift "3:Code"
-    , className =? "jetbrains-idea"  --> doShift "3:Code"
-    , className =? "lighttable"      --> doShift "3:Code"
-    , className =? "LightTable"      --> doShift "3:Code"
+    [ className =? "Firefox"         --> doShift "web"
+    -- , className =? "google-chrome"   --> doShift "web"
+    , className =? "sublime_text"    --> doShift "code"
+    , className =? "jetbrains-idea"  --> doShift "code"
+    , className =? "lighttable"      --> doShift "code"
+    , className =? "atom"            --> doShift "code"
+    , className =? "drracket"        --> doShift "code"
     , isFullscreen                   --> doFullFloat ]
 
 -- layout
-defaultLayout = tiled ||| Full
+defaultLayout =   renamed [Replace "tile"] tiled
+              ||| renamed [Replace "full"] Full
   where
     tiled = spacing 2 $ Tall nmaster delta ratio
     nmaster = 1
