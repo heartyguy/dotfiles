@@ -1,13 +1,14 @@
 dotfiles
 ========
 
-This repository contains my complete configuration on my development laptop. My environment specification along with the prerequisites to these settings are below. 
+This repository contains my complete configuration on my development laptop. I run a Lenovo Thinkpad T430s laptop for development, running Arch Linux. 
 
+Display Server: X Server
+Window Manager: Xmonad
+Notification bar: Xmobar
+Composition Manager: Compton
+Terminal Emulator: URxvt
+Shell: Zsh
+Network Manager: Netctl
 
-
-### Environment
-
-I run a Lenovo Thinkpad T430s laptop for development, running Arch Linux.
-
-
-My list of installed packages will be in a file called pacman.installed.20xx.xx
+My entire list of installed packages is kept in `pacman.installed.20xx.xx`
