@@ -30,7 +30,7 @@ urxvtd -q -o -f
 
 # --- processes ---
 compton --config ~/.compton.conf -b
-feh --randomize --bg-fill -z ~/pictures/wallpapers/* &
+feh --randomize --bg-fill -z ~/Dropbox/pictures/wallpapers/* &
 dropboxd &
 xscreensaver -no-splash &
 

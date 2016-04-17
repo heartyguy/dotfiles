@@ -34,8 +34,8 @@ myManageHook = composeAll
     , isFullscreen                   --> doFullFloat ]
 
 -- layout
-defaultLayout =   renamed [Replace "tile"] tiled
-              ||| renamed [Replace "full"] Full
+defaultLayout =   renamed [Replace "full"] Full
+              ||| renamed [Replace "tile"] tiled
   where
     tiled = spacing 2 $ Tall nmaster delta ratio
     nmaster = 1
@@ -74,7 +74,7 @@ main = do
     `additionalKeys`
 
     [ ((0, xK_Print),                     -- print screen
-       spawn "scrot ~/pictures/screenshots/scrot-%Y-%m-%d-%T.png")
+       spawn "scrot ~/Dropbox/pictures/screenshots/scrot-%Y-%m-%d-%T.png")
 
     , ((0, xK_Mode_switch),               -- launch
        spawn "dmenu_run")
