@@ -4,16 +4,13 @@ Config {
       font                     = "xft:Bitstream Vera Sans Mono:pixelsize=11:antialias=true"
     , bgColor                  = "black"
     , fgColor                  = "#70FFFE"
-    --, fgColor                  = "#CCFF7D"
     , alpha                    = 199
     , position                 = Top
-    -- , border                   = BottomB
-    -- , borderColor              = "grey"
 
     -- layout
     , sepChar                  = "%"
     , alignSep                 = "}{"
-    , template                 = " %StdinReader% }{ cpu %multicpu% | mem %memory% | net %dynnetwork% %wifisignal% | vol %volume% | pow %battery% | %date% "
+    , template                 = " %StdinReader% }{ cpu %multicpu%  mem %memory%  net %dynnetwork% %wifisignal%  vol %volume%  pow %battery%   %date% "
 
     -- general behavior
     , lowerOnStart             = True
@@ -65,9 +62,9 @@ Config {
                                        -- discharging status
                                        , "-o"	, "<left>%"
                                        -- AC "on" status
-                                       , "-O"	, "<fc=#E8D466><left>% charging</fc>"
+                                       , "-O"	, "<fc=#90E897><left>% charging</fc>"
                                        -- charged status
-                                       , "-i"	, "<fc=#CCFF7D>full</fc>"
+                                       , "-i"	, "<fc=#B3FFE5>full</fc>"
                              ] 50
 
         -- time and date indicator 
