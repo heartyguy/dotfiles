@@ -75,9 +75,9 @@ Config {
         , Run StdinReader
 
         -- wifi signal
-        , Run Com "/home/glados/.bin/wireless.sh" [] "wifisignal" 10
+        , Run Com ".bin/wireless.sh" [] "wifisignal" 10
 
         -- volume
-        , Run Com "/home/glados/.bin/volume.sh" [] "volume" 10
+        , Run Com ".bin/volume.sh" [] "volume" 10
         ]
 }

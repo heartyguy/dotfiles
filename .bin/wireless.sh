@@ -1,12 +1,12 @@
 #!/bin/sh
 
-ip link show enp0s25 2>&1 | grep -q NO-CARRIER || {
+ip link show enp0s25 2>&1 | grep -q -E 'NO-CARRIER|DOWN' || {
   echo '>>>>>'
   exit 0
 }
 
 iw dev wlp3s0 link | grep -q 'Not connected.' && {
-  echo '[--x--]'
+  echo '--x--'
   exit 0
 }
 

@@ -33,6 +33,7 @@ compton --config ~/.compton.conf -b
 feh --randomize --bg-fill -z ~/Dropbox/pictures/wallpapers/* &
 dropboxd &
 xscreensaver -no-splash &
+syndaemon -i 0.2 -k &
 
 # --- window manager ---
 exec xmonad

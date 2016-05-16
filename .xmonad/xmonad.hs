@@ -20,7 +20,7 @@ import qualified Data.Map        as M
 import qualified XMonad.StackSet as W
 
 -- workspace
-myWorkspaces = ["main", "web", "code", "aux", "v", "vi", "vii", "music", "misc"]
+myWorkspaces = ["main", "web", "code", "aux", "v", "vi", "comm", "music", "misc"]
 
 -- management
 myManageHook = composeAll
@@ -50,6 +50,22 @@ myLogHook dest = dynamicLogWithPP $ xmobarPP
 dimLogHook = fadeInactiveLogHook fadeAmount
     where fadeAmount = 1
 
+-- mouse bindings
+mouseBindings :: XConfig Layout -> M.Map (KeyMask, Button) (Window -> X ())
+mouseBindings (XConfig {XMonad.modMask = modMask}) = M.fromList
+  [ ((mod4Mask .|. shiftMask, button1), -- move window
+  	 (\w -> focus w >> mouseMoveWindow w 
+			               >> windows W.shiftMaster))
+
+  , ((mod4Mask .|. shiftMask, button2), -- raise window
+		 (windows . (W.shiftMaster .) . W.focusWindow))
+
+	, ((mod4Mask .|. shiftMask, button3), -- resize window
+		 (\w -> focus w >> mouseResizeWindow w 
+			               >> windows W.shiftMaster))
+	]
+
+
 -- main
 main = do
   xmproc <- spawnPipe "xmobar"
@@ -70,6 +86,9 @@ main = do
     , handleEventHook      = mconcat
                            [ docksEventHook
                            , fullscreenEventHook ]
+
+	  -- bindings
+		, XMonad.mouseBindings = Main.mouseBindings
     }
     `additionalKeys`
 
@@ -82,7 +101,7 @@ main = do
     , ((mod4Mask .|. shiftMask, xK_w),    -- close
        kill)
 
-    , ((mod4Mask .|. shiftMask, xK_c),    -- disable mod-C
+    , ((mod4Mask .|. shiftMask, xK_c),    -- disable mod+C
        return ())
 
     , ((0, xF86XK_MonBrightnessUp),       -- brightness up
@@ -105,4 +124,8 @@ main = do
 
     , ((0, xF86XK_ScreenSaver),           -- lock screen
        spawn "xscreensaver-command --lock")
+
+    , ((mod4Mask .|. shiftMask, xK_l),    -- lock screen
+       spawn "xscreensaver-command --lock")
+
     ]
