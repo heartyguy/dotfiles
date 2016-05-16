@@ -95,7 +95,7 @@ bindkey -M emacs 'C;DEL~' kill-word
 # Aliases
 alias ll="ls -laG"
 alias vi="vim"
-open() { xdg-open "$@" 2>&1 1>/dev/null & }
+open () { nohup xdg-open "$@" 2>&1 >/dev/null & }
 
 # Export paths
 export PATH

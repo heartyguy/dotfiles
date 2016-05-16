@@ -27,3 +27,6 @@ cp -v /etc/pacman.conf $REPO/etc/
 
 # Screensaver
 cp -v .xscreensaver $REPO/
+
+# Vim Settings
+cp -v .vimrc $REPO/
