@@ -15,7 +15,7 @@ URxvt.scrollBar:                      false
 URxvt.scrollTtyOutput:                false
 URxvt.scrollWithBuffer:               true
 URxvt.scrollTtyKeypress:              true
-URxvt.secondaryScreen:                0
+URxvt.secondaryScreen:                1
 URxvt.secondaryScroll:                0
 
 ! --- urxvt.cursor ---

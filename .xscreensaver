@@ -1,5 +1,5 @@
 # XScreenSaver Preferences File
-# Written by xscreensaver-demo 5.34 for glados on Tue Apr 19 15:00:04 2016.
+# Written by xscreensaver-demo 5.34 for melody on Tue May 10 18:21:40 2016.
 # http://www.jwz.org/xscreensaver/
 
 timeout:	2:00:00
@@ -203,7 +203,7 @@ programs:								      \
 -				abstractile -root -speed 4		    \n\
 -				anemotaxis -root			    \n\
 - GL: 				antinspect -root			    \n\
-				fireworkx -root -shoot -fps		    \n\
+-				fireworkx -root -shoot -fps		    \n\
 -				fuzzyflakes -root			    \n\
 -				interaggregate -root			    \n\
 -				intermomentary -root			    \n\

@@ -45,9 +45,9 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins+=(zsh-completions)
+plugins+=()
 
-autoload -U compinit && compinit
+autoload -Uz compinit && compinit
 
 source $ZSH/oh-my-zsh.sh
 
@@ -72,6 +72,7 @@ PATH="$HOME/.rvm/bin:$PATH"
 
 # SSH
 export SSH_KEY_PATH="~/.ssh/"
+source ~/.ssh_completion_zsh
 
 # Shell Command Highlighting
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
@@ -103,4 +104,5 @@ export MANPATH
 
 # Welcome Message
 # fortune -a  | lolcat
+
 
