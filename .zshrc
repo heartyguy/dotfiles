@@ -54,7 +54,7 @@ source $ZSH/oh-my-zsh.sh
 # User configuration
 
 # Base path
-PATH="/usr/local/sbin:/usr/local/bin:/usr/bin:$HOME/.bin"
+PATH="/usr/local/sbin:/usr/local/bin:/usr/bin"
 MANPATH="/usr/local/man"
 
 # Perl path
@@ -86,8 +86,11 @@ MANPATH="/usr/local/pgsql/man:$MANPATH"
 export EDITOR=vi
 
 # SDKs
-PATH=$HOME/dev/SDKs/android-sdk-linux/tools:$PATH   # Android
-PATH=$HOME/dev/SDKs/activator-dist-1.3.6:$PATH      # Typesafe Activator
+# PATH=$HOME/dev/SDKs/android-sdk-linux/tools:$PATH   # Android
+# PATH=$HOME/dev/SDKs/activator-dist-1.3.6:$PATH      # Typesafe Activator
+
+# User Scripts
+PATH=$HOME/.bin:$HOME/.local/scripts:$PATH
 
 # Key Bindings
 bindkey -M emacs 'C;BS~' backward-kill-word 
@@ -97,6 +100,8 @@ bindkey -M emacs 'C;DEL~' kill-word
 alias ll="ls -laG"
 alias vi="vim"
 open () { nohup xdg-open "$@" 2>&1 >/dev/null & }
+alias rm="rm -i"
+alias mv="mv -i"
 
 # Export paths
 export PATH

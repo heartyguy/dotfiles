@@ -30,6 +30,7 @@ myManageHook = composeAll
     , className =? "jetbrains-idea"  --> doShift "code"
     , className =? "lighttable"      --> doShift "code"
     , className =? "atom"            --> doShift "code"
+    , className =? "Atom"            --> doShift "code"
     , className =? "drracket"        --> doShift "code"
     , isFullscreen                   --> doFullFloat ]
 

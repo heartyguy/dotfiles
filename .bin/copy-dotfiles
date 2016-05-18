@@ -20,7 +20,7 @@ cp -v .xinitrc .xmobarrc .Xmodmap .Xresources .compton.conf $REPO/
 cp -v /etc/X11/xorg.conf $REPO/etc/X11/
 
 # Intel Driver
-cp -v /etc/X11/xorg.conf.d/20-intel.conf $REPO/etc/X11/xorg.conf.d/20-intel.conf
+cp -v /etc/X11/xorg.conf.d/20-intel.conf $REPO/etc/X11/xorg.conf.d/
 
 # Xmonad
 cp -v .xmonad/xmonad.hs $REPO/.xmonad/
@@ -36,3 +36,6 @@ cp -v .vimrc $REPO/
 
 # SSH Completion
 cp -v .ssh_completion_zsh $REPO/
+
+# Git credential-netrc script (vend)
+cp -v /usr/local/bin/git-credential-netrc $REPO/usr/local/bin/
