@@ -72,7 +72,7 @@ PATH="$HOME/.rvm/bin:$PATH"
 
 # SSH
 export SSH_KEY_PATH="~/.ssh/"
-source ~/.ssh_completion_zsh
+source ~/.bin/.ssh_completion_zsh
 
 # Shell Command Highlighting
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

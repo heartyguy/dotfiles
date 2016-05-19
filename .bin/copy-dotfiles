@@ -34,8 +34,5 @@ cp -v .xscreensaver $REPO/
 # Vim Settings
 cp -v .vimrc $REPO/
 
-# SSH Completion
-cp -v .ssh_completion_zsh $REPO/
-
 # Git credential-netrc script (vend)
 cp -v /usr/local/bin/git-credential-netrc $REPO/usr/local/bin/
