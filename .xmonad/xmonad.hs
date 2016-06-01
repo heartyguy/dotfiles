@@ -20,7 +20,7 @@ import qualified Data.Map        as M
 import qualified XMonad.StackSet as W
 
 -- workspace
-myWorkspaces = ["main", "web", "code", "aux", "v", "vi", "comm", "music", "misc"]
+myWorkspaces = ["main", "web", "code", "aux", "test", "vi", "comm", "music", "misc"]
 
 -- management
 myManageHook = composeAll
