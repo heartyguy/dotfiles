@@ -1,5 +1,5 @@
 # XScreenSaver Preferences File
-# Written by xscreensaver-demo 5.34 for melody on Tue May 10 18:21:40 2016.
+# Written by xscreensaver-demo 5.34 for melody on Tue Jun 14 09:40:35 2016.
 # http://www.jwz.org/xscreensaver/
 
 timeout:	2:00:00
@@ -19,7 +19,7 @@ nice:		10
 memoryLimit:	0
 fade:		True
 unfade:		True
-fadeSeconds:	0:00:03
+fadeSeconds:	0:00:01
 fadeTicks:	20
 captureStderr:	True
 ignoreUninstalledPrograms:False
@@ -31,7 +31,7 @@ dpmsSuspend:	2:00:00
 dpmsOff:	4:00:00
 grabDesktopImages:  False
 grabVideoFrames:    False
-chooseRandomImages: True
+chooseRandomImages: False
 imageDirectory:	/home/glados/Dropbox/pictures/wallpapers
 
 mode:		random
@@ -188,7 +188,7 @@ programs:								      \
 -				fontglide -root				    \n\
 - GL: 				gleidescope -root			    \n\
 - GL: 				glknots -root				    \n\
-- GL: 				glmatrix -root				    \n\
+  GL: 				glmatrix -root				    \n\
 - GL: 				glslideshow -root			    \n\
 - GL: 				hypertorus -root			    \n\
 - GL: 				jigglypuff -root			    \n\

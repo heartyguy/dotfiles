@@ -27,10 +27,27 @@ export JAVA_HOME=/usr/lib/jvm/java-8-openjdk
 xset r rate 250 30
 xsetroot -cursor_name left_ptr
 urxvtd -q -o -f
+feh --randomize --bg-fill -z ~/Dropbox/pictures/wallpapers/*
+
+case $1 in
+  re)
+    exit
+    ;;
+  duo)
+    xrandr --output VGA1 --auto --right-of eDP1
+    exit
+    ;;
+  sol)
+    xrandr --auto
+    exit
+    ;;
+  *)
+    echo "wrong arguments. accepted: re|duo|sol"
+    ;;
+esac
 
 # --- processes ---
 compton --config ~/.compton.conf -b
-feh --randomize --bg-fill -z ~/Dropbox/pictures/wallpapers/* &
 dropboxd &
 xscreensaver -no-splash &
 syndaemon -i 0.2 -k &

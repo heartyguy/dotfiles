@@ -74,6 +74,7 @@ set tabstop=2
 filetype indent on
 "set autoindent
 set cindent
+set expandtab
 
 " show matching enclosing chars for .1 sec
 set showmatch
