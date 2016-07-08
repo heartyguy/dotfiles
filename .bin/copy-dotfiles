@@ -34,5 +34,7 @@ cp -v .xscreensaver $REPO/
 # Vim Settings
 cp -v .vimrc $REPO/
 
+cp -v .asoundrc $REPO/
+
 # Git credential-netrc script (vend)
 cp -v /usr/local/bin/git-credential-netrc $REPO/usr/local/bin/
