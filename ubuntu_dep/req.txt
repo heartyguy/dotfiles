@@ -1,0 +1,17 @@
+xmonad
+libcogl15
+libclutter-1.0-0
+libclutter-gtk-1.0-0
+libclutter-gst-2.0-0
+gstreamer1.0-clutter
+libcheese-gtk23
+libcheese7
+suckless-tools
+zsh
+rxvt-unicode-256color
+xserver-xorg-core
+xserver-xorg
+xorg openbox
+xmobar
+compton
+git-core
